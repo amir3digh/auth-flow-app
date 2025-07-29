@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
@@ -23,7 +24,7 @@ const Sidebar: React.FC = () => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.userBrief}>
-        <img src={user.picture.medium} alt={user.name.first} className={styles.userAvatar} />
+        <Image src={user.picture.medium} alt={user.name.first} width={64} height={64} className={styles.userAvatar} />
         <div className={styles.userName}>{user.name.first} {user.name.last}</div>
       </div>
       <nav className={styles.nav}>

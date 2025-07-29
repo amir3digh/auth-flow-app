@@ -1,5 +1,6 @@
 import React from 'react';
-import { User } from '../types/user';
+import Image from 'next/image';
+import { User } from '@/types/user';
 import styles from './UserCard.module.scss';
 
 interface UserCardProps {
@@ -10,7 +11,7 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        <img src={user.picture.large} alt={user.name.first} className={styles.avatar} />
+        <Image src={user.picture.large} alt={user.name.first} width={128} height={128} className={styles.avatar} />
         <div>
           <h2 className={styles.name}>{user.name.title} {user.name.first} {user.name.last}</h2>
           <div className={styles.email}>{user.email}</div>

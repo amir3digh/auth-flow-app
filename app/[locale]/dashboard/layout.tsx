@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { BarChart3, User, LogOut } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
@@ -45,7 +46,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <Link href="/" className={styles.appName}>{t('dashboard.appName')}</Link>
                 {/* Mobile User Info */}
                 <div className={styles.mobileUserInfo}>
-                  <img src={user.picture.thumbnail} alt={user.name.first} className={styles.mobileAvatar} />
+                  <Image src={user.picture.thumbnail} alt={user.name.first} width={32} height={32} className={styles.mobileAvatar} />
                   <span className={styles.mobileUserName}>{user.name.first}</span>
                 </div>
               </div>

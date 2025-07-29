@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTranslations } from 'next-intl';
 import { Mail, Phone, MapPin, Calendar, Globe, TrendingUp, DollarSign, User } from 'lucide-react';
@@ -16,7 +17,7 @@ const ProfilePage: React.FC = () => {
       <div className={styles.profileContent}>
         {/* User Header */}
         <div className={styles.userHeader}>
-          <img src={user.picture.large} alt={user.name.first} className={styles.userAvatar} />
+          <Image src={user.picture.large} alt={user.name.first} width={128} height={128} className={styles.userAvatar} />
           <div className={styles.userInfo}>
             <h3 className={styles.userName}>{user.name.title} {user.name.first} {user.name.last}</h3>
             <div className={styles.userEmail}>
