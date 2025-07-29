@@ -1,0 +1,158 @@
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+.desktopSidebar {
+  display: block;
+}
+.header {
+  width: 100%;
+  background: var(--color-card);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 60px;
+}
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.appName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 1px;
+}
+.mobileUserInfo {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  .mobileAvatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--color-accent);
+  }
+  .mobileUserName {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+}
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.mobileNav {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+.mobileNavButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  &:hover, &.active {
+    background: var(--color-accent);
+    color: #fff;
+  }
+}
+.mobileLogout {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: #ef4444;
+    color: #fff;
+  }
+}
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media (max-width: 900px) {
+  .dashboardLayout {
+    flex-direction: column;
+  }
+  .desktopSidebar {
+    display: none;
+  }
+  .header {
+    padding: 0 1rem;
+    height: 70px;
+    .appName {
+      font-size: 1.25rem;
+    }
+  }
+  .mobileUserInfo {
+    display: flex;
+  }
+  .mobileNav {
+    display: flex;
+  }
+  .mobileLogout {
+    display: flex;
+  }
+  .headerActions {
+    gap: 1rem;
+  }
+  .content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .header {
+    padding: 0 0.75rem;
+    .appName {
+      font-size: 1.1rem;
+    }
+  }
+  .mobileUserInfo {
+    .mobileAvatar {
+      width: 24px;
+      height: 24px;
+    }
+    .mobileUserName {
+      font-size: 0.8rem;
+    }
+  }
+  .mobileNavButton, .mobileLogout {
+    width: 32px;
+    height: 32px;
+  }
+  .content {
+    padding: 0.75rem;
+  }
+} 

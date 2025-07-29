@@ -1,0 +1,46 @@
+{
+  "common": {
+    "testApp": "Test App",
+    "loading": "Loading...",
+    "logout": "Logout",
+    "overview": "Overview",
+    "profile": "Profile"
+  },
+  "home": {
+    "title": "Authentication Flow App",
+    "subtitle": "A modern authentication system built with Next.js, TypeScript, and SCSS Modules"
+  },
+  "auth": {
+    "title": "Sign In",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "09xxxxxxxxx",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "phoneError": "Phone must be 11 digits and start with 09"
+  },
+  "dashboard": {
+    "appName": "Auth Flow App",
+    "welcome": "Welcome to the Dashboard",
+    "marketOverview": "Market Overview",
+    "personalInformation": "Personal Information",
+    "location": "Location",
+    "cryptoPortfolio": "Crypto Portfolio",
+    "totalPortfolioValue": "Total Portfolio Value"
+  },
+  "profile": {
+    "age": "Age",
+    "birthDate": "Birth Date",
+    "nationality": "Nationality",
+    "memberSince": "Member Since",
+    "city": "City",
+    "state": "State",
+    "country": "Country",
+    "postcode": "Postcode",
+    "yearsOld": "years old"
+  },
+  "crypto": {
+    "bitcoin": "Bitcoin",
+    "ethereum": "Ethereum",
+    "solana": "Solana"
+  }
+} 

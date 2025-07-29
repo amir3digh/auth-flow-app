@@ -1,0 +1,97 @@
+.overviewSection {
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .cryptoCards {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+}
+.cryptoCard {
+  @extend .card;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  span.symbol {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--color-accent);
+  }
+  span.price {
+    font-size: 1.1rem;
+  }
+  span.change {
+    font-weight: 600;
+  }
+}
+.card {
+  background: var(--color-card);
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 1.25rem;
+  color: var(--color-text);
+  transition: background 0.2s, color 0.2s;
+}
+@media (max-width: 900px) {
+  .overviewSection {
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+    .cryptoCards {
+      gap: 1rem;
+      flex-direction: column;
+    }
+  }
+  .cryptoCard {
+    min-width: 0;
+    width: 100%;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    span.symbol {
+      font-size: 0.85rem;
+    }
+    span.price {
+      font-size: 1rem;
+    }
+    span.change {
+      font-size: 0.9rem;
+    }
+  }
+  .card {
+    padding: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .overviewSection {
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .cryptoCards {
+      gap: 0.75rem;
+    }
+  }
+  .cryptoCard {
+    padding: 0.75rem;
+    span.symbol {
+      font-size: 0.8rem;
+    }
+    span.price {
+      font-size: 0.9rem;
+    }
+    span.change {
+      font-size: 0.85rem;
+    }
+  }
+  .card {
+    padding: 0.75rem;
+  }
+} 

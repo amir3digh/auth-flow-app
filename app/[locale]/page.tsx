@@ -1,4 +1,14 @@
-# 🔐 Authentication Flow Application
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { ArrowRight, Play } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import MarkdownRenderer from '@/components/markdownRenderer/MarkdownRenderer';
+import styles from '@/app/HomePage.module.scss';
+
+// Import the project description content
+const projectDescription = `# 🔐 Authentication Flow Application
 
 A sophisticated authentication system built with Next.js, TypeScript, and SCSS Modules. This application demonstrates a complete, secure authentication flow with JWT tokens, database persistence, and modern UI/UX practices.
 
@@ -19,9 +29,9 @@ This application implements a **production-ready authentication system** that go
 ### **Core Authentication Flow**
 
 #### **1. User Registration/Login Process**
-```
+\`\`\`
 User Input → Validation → API Call → User Creation/Retrieval → Token Generation → Cookie Setting → Redirect
-```
+\`\`\`
 
 **Detailed Steps:**
 1. **Phone Number Input**: User enters Iranian mobile number (09xxxxxxxxx)
@@ -70,23 +80,23 @@ User Input → Validation → API Call → User Creation/Retrieval → Token Gen
 ### **SQLite Database Schema**
 
 #### **Users Table**
-```sql
+\`\`\`sql
 CREATE TABLE users (
   phone TEXT PRIMARY KEY,
   user_data TEXT NOT NULL,
   created_at TEXT NOT NULL
 )
-```
+\`\`\`
 
 #### **Tokens Table**
-```sql
+\`\`\`sql
 CREATE TABLE tokens (
   token TEXT PRIMARY KEY,
   phone TEXT NOT NULL,
   created_at TEXT NOT NULL,
   FOREIGN KEY (phone) REFERENCES users (phone)
 )
-```
+\`\`\`
 
 ### **Data Flow**
 1. **User Creation**: Phone number + RandomUser API data stored in users table
@@ -96,9 +106,9 @@ CREATE TABLE tokens (
 
 ## 🔄 Authentication Process Details
 
-### **Login Flow (`/api/auth/login`)**
+### **Login Flow** (\`/api/auth/login\`)
 
-```typescript
+\`\`\`typescript
 // 1. Validate input with Zod schema
 const { phone } = loginSchema.parse(body);
 
@@ -115,11 +125,11 @@ response.cookies.set('auth-token', token, {
   sameSite: 'strict',
   maxAge: 7 * 24 * 60 * 60 // 7 days
 });
-```
+\`\`\`
 
-### **Session Verification (`/api/auth/user`)**
+### **Session Verification** (\`/api/auth/user\`)
 
-```typescript
+\`\`\`typescript
 // 1. Extract token from cookie
 const token = request.cookies.get('auth-token')?.value;
 
@@ -131,11 +141,11 @@ const user = await getUserByPhone(phone);
 
 // 4. Return user data
 return NextResponse.json({ success: true, user });
-```
+\`\`\`
 
-### **Logout Process (`/api/auth/logout`)**
+### **Logout Process** (\`/api/auth/logout\`)
 
-```typescript
+\`\`\`typescript
 // 1. Get token from cookie
 const token = request.cookies.get('auth-token')?.value;
 
@@ -151,7 +161,7 @@ response.cookies.set('auth-token', '', {
   sameSite: 'strict',
   maxAge: 0
 });
-```
+\`\`\`
 
 ## 🎨 User Interface Features
 
@@ -173,7 +183,7 @@ response.cookies.set('auth-token', '', {
 ### **Frontend Authentication Logic**
 
 #### **AuthContext Provider**
-```typescript
+\`\`\`typescript
 // Global authentication state management
 const AuthContext = createContext<AuthContextType>();
 
@@ -191,22 +201,22 @@ const login = async (phone: string) => {
     return { success: true };
   }
 };
-```
+\`\`\`
 
 #### **Protected Route Logic**
-```typescript
+\`\`\`typescript
 // Automatic redirection for unauthenticated users
 useEffect(() => {
   if (!loading && !user) {
     router.push('/auth');
   }
 }, [user, loading, router]);
-```
+\`\`\`
 
 ### **Backend Authentication Services**
 
 #### **Token Management**
-```typescript
+\`\`\`typescript
 // Generate JWT token
 export async function generateToken(phone: string): Promise<string> {
   const token = jwt.sign({ phone }, JWT_SECRET, { expiresIn: '7d' });
@@ -224,10 +234,10 @@ export async function verifyToken(token: string): Promise<string | null> {
     return null;
   }
 }
-```
+\`\`\`
 
 #### **User Management**
-```typescript
+\`\`\`typescript
 // Create or retrieve user
 export async function createOrGetUser(phone: string): Promise<AuthUser> {
   const existingUser = await getUserByPhone(phone);
@@ -239,7 +249,7 @@ export async function createOrGetUser(phone: string): Promise<AuthUser> {
   await db.saveUser(phone, randomUser);
   return userWithPhone;
 }
-```
+\`\`\`
 
 ## 📊 Key Authentication Features
 
@@ -265,24 +275,6 @@ export async function createOrGetUser(phone: string): Promise<AuthUser> {
 - **Error Boundaries**: Comprehensive error handling
 - **Scalable Architecture**: Clean separation of concerns
 
-## 🚀 Getting Started
-
-1. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-2. **Run Development Server**
-   ```bash
-   npm run dev
-   ```
-
-3. **Test Authentication**
-   - Navigate to `/auth`
-   - Enter any Iranian mobile number (09xxxxxxxxx)
-   - Experience the complete authentication flow
-   - Test session persistence and logout
-
 ## 🔧 Technical Stack
 
 - **Framework**: Next.js 15 with App Router
@@ -307,4 +299,32 @@ export async function createOrGetUser(phone: string): Promise<AuthUser> {
 
 ---
 
-**Built with ❤️ using Next.js, TypeScript, and SCSS Modules**
+**Built with ❤️ using Next.js, TypeScript, and SCSS Modules**`;
+
+export default function Home() {
+  const t = useTranslations();
+
+  return (
+    <div className={styles.homeContainer}>
+      <header className={styles.header}>
+        <div className={styles.headerContent}>
+          <h1 className={styles.title}>{t('home.title')}</h1>
+          <p className={styles.subtitle}>
+            {t('home.subtitle')}
+          </p>
+          <Link href="/auth" className={styles.testButton}>
+            <Play size={20} />
+            <span>{t('common.testApp')}</span>
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </header>
+      
+      <main className={styles.main}>
+        <div className={styles.content}>
+          <MarkdownRenderer content={projectDescription} />
+        </div>
+      </main>
+    </div>
+  );
+}

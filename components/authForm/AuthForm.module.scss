@@ -1,0 +1,42 @@
+.appName {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.authWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  transition: background 0.2s;
+  .themeToggle {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .form {
+    background: var(--color-card);
+    padding: 2.5rem 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 320px;
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--color-text);
+    }
+  }
+}

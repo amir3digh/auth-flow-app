@@ -1,0 +1,46 @@
+.card {
+  background: var(--color-card);
+  color: var(--color-text);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  padding: 2rem 1.5rem;
+  min-width: 320px;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: background 0.2s, color 0.2s;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-accent);
+}
+.name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.email {
+  font-size: 1rem;
+  color: var(--color-accent);
+  word-break: break-all;
+}
+.infoRow {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1rem;
+  align-items: center;
+}
+.label {
+  font-weight: 600;
+  color: var(--color-accent);
+} 

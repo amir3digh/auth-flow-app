@@ -1,0 +1,46 @@
+{
+  "common": {
+    "testApp": "تست اپلیکیشن",
+    "loading": "در حال بارگذاری...",
+    "logout": "خروج",
+    "overview": "نمای کلی",
+    "profile": "پروفایل"
+  },
+  "home": {
+    "title": "اپلیکیشن احراز هویت",
+    "subtitle": "یک سیستم احراز هویت مدرن ساخته شده با Next.js، TypeScript و SCSS Modules"
+  },
+  "auth": {
+    "title": "ورود",
+    "phoneLabel": "شماره موبایل",
+    "phonePlaceholder": "09xxxxxxxxx",
+    "loginButton": "ورود",
+    "loggingIn": "در حال ورود...",
+    "phoneError": "شماره موبایل باید ۱۱ رقم باشد و با ۰۹ شروع شود"
+  },
+  "dashboard": {
+    "appName": "اپلیکیشن احراز هویت",
+    "welcome": "به داشبورد خوش آمدید",
+    "marketOverview": "نمای کلی بازار",
+    "personalInformation": "اطلاعات شخصی",
+    "location": "موقعیت مکانی",
+    "cryptoPortfolio": "پرتفوی ارز دیجیتال",
+    "totalPortfolioValue": "ارزش کل پرتفوی"
+  },
+  "profile": {
+    "age": "سن",
+    "birthDate": "تاریخ تولد",
+    "nationality": "ملیت",
+    "memberSince": "عضو از",
+    "city": "شهر",
+    "state": "استان",
+    "country": "کشور",
+    "postcode": "کد پستی",
+    "yearsOld": "سال"
+  },
+  "crypto": {
+    "bitcoin": "بیت کوین",
+    "ethereum": "اتریوم",
+    "solana": "سولانا"
+  }
+} 
